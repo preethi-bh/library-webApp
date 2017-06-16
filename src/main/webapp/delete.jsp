@@ -1,0 +1,60 @@
+<%@page import="java.sql.*"%>
+<%
+out.println("<h1 align=center>Welcome "+session.getAttribute("username")+"</h1>");
+out.println("<a align=center href=http://127.0.0.1:8080/Project_programs/home.jsp><h1>HOME</h1></a>");
+%>
+<%!
+		String name,query;
+		Connection con;
+		Statement st;
+		int res;
+	%>
+	<%
+		try{
+			String name=(String)session.getAttribute("username");
+			Class.forName("com.mysql.jdbc.Driver");
+			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/","root","atreyasa");
+			st=con.createStatement();
+			query="use "+name;
+			st.executeUpdate(query);
+		  }
+			catch(Exception e){
+				out.println(e);
+			}
+	%>	
+		<html>
+		<head>
+			<link rel="stylesheet" type="text/css" href="style.css">
+			<link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+		</head>
+		<body>
+			<div class="style">
+			<h2>
+			<fieldset align="center">
+				<legend>Delete a book</legend>
+				<form action="delete.jsp">
+				<br>Book Id:<input type="text" name="book" id="s"><br>
+				<input type="submit" value="Delete" id="s">
+				</form>
+			</fieldset>
+			</div>
+		</body>
+		</html>
+		
+		
+	<%
+		try{
+			name=request.getParameter("book");
+			query="delete from Book where BookId='"+name+"'";
+			res=st.executeUpdate(query);
+			if(res>0)
+				out.println("Deleted Successfully");
+		  }
+			catch(Exception e){
+				out.println(e);
+			}
+	%>
+		
+		
+			
+			
