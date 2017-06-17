@@ -43,7 +43,8 @@
  	{
         if(password.equals(confirmp)){
 	st=con.createStatement();
-	rs=st.executeQuery("select * from admins where username='"+name+"'");
+	st.executeUpdate("\c DATABASE");
+	rs=st.executeQuery("select * from college where username='"+name+"'");
 
 	if(rs!=null&&rs.next()){
 		out.println("<h1>This username already exists.Choose something else</h1");
@@ -53,24 +54,19 @@
 	else{
 		//inserting the new administrators's value in the admins table
 
-		query="insert into admins(username,password) values('"+name+"','"+password+"')";
+		query="insert into college(username,password) values('"+name+"','"+password+"')";
 		result=st.executeUpdate(query);
 
-		//creating database with the user's name
-		query="create database "+name;
-
-		create=st.executeUpdate(query);
-		if(result>0&&create>0){
-			st.executeUpdate("use "+name);
+			
 
 
 		try{
 		//creating tables in the database	
-		query="create table Book(BookId int not null auto_increment,Name varchar(50) not null,Author varchar(50) not null,Edition varchar(10) not null,Subject varchar(10),primary key(BookId))";
+		query="create table Book(username varchar(20),BookId serial, Name varchar(50) not null,Author varchar(50) not null,Edition varchar(10) not null,Subject varchar(10),primary key(BookId),foreign key(username) references college(username))";
 		st.execute(query);
-		query="create table User(Name varchar(20) not null,Rollno varchar(10),Dept varchar(5) not null,Year numeric(5) not null,MobileNo numeric,primary key(Rollno))";
+		query="create table User(username varchar(20),Name varchar(20) not null,Rollno varchar(10),Password varchar(20),Dept varchar(5) not null,Year numeric(5) not null,MobileNo numeric,primary key(Rollno),foreign key(username) references college(username))";
 		st.execute(query);
-		query="create table BookTrans(BookId int not null auto_increment,Name varchar(50) ,Author varchar(50),Edition varchar(10),Rollno varchar(10),MobileNo numeric,Status varchar(10) default 'Available', Renew_Date timestamp, primary key(BookId),foreign key(BookId) references Book(BookId),foreign key(Rollno) references User(Rollno))";
+		query="create table BookTrans(username varchar(20),BookId int not null auto_increment,Name varchar(50) ,Author varchar(50),Edition varchar(10),Rollno varchar(10),MobileNo numeric,Status varchar(10) default 'Available',Date_of_Issue timestamp, Renew_Date timestamp, primary key(BookId),foreign key(BookId) references Book(BookId),foreign key(Rollno) references User(Rollno),foreign key(username) references college(username)";
 		st.execute(query);
 
 		out.println("<h1>Registered Successfully</h1>");
