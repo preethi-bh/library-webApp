@@ -12,8 +12,8 @@
 <%
 	
 	try{
-		Class.forName("com.mysql.jdbc.Driver");
-		con=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/vaishnavi","root","atreyasa");
+		Class.forName("org.postgresql.Driver");
+		con=DriverManager.getConnection("JDBC_DATABASE_URL");
 
 		name=request.getParameter("username");
 		password=request.getParameter("password");
@@ -27,13 +27,13 @@
 		rs1=st1.executeQuery("select * from admins where username='"+name+"' and password!='"+password+"'");
 
 		if(rs!=null&&rs.next()){
-			response.sendRedirect("http://127.0.0.1:8080/Project_programs/home.jsp");
+			response.sendRedirect("https://tomcat-sample.herokuapp.com/home.jsp");
 		}
 		else if(rs1!=null&&rs1.next()){
 			out.println("Enter correct password");
 		}
 		else{
-		response.sendRedirect("http://127.0.0.1:8080/Project_programs/register.jsp");
+		response.sendRedirect("https://tomcat-sample.herokuapp.com/register.jsp");
 		}
 	}
 	catch(Exception e){

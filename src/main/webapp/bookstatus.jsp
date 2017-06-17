@@ -29,8 +29,8 @@ out.println("<a align=center href=http://127.0.0.1:8080/Project_programs/home.js
 	String uname=(String)session.getAttribute("username");
 
 	
-	Class.forName("com.mysql.jdbc.Driver");
-	con=DriverManager.getConnection("jdbc:mysql://localhost:3306/","root","atreyasa");
+	Class.forName("org.postgresql.Driver");
+	con=DriverManager.getConnection("JDBC_DATABASE_URL");
 	st=con.createStatement();
 	st.execute("use "+uname);
 

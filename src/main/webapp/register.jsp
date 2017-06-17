@@ -33,8 +33,8 @@
 
     try{
 
-	Class.forName("com.mysql.jdbc.Driver");
-	con=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/vaishnavi","root","atreyasa");
+	Class.forName("org.postgresql.Driver");
+	con=DriverManager.getConnection("JDBC_DATABASE_URL");
 	name=request.getParameter("username");
 	password=request.getParameter("password");
 	confirmp=request.getParameter("password2");
@@ -46,7 +46,7 @@
 
 	if(rs!=null&&rs.next()){
 		out.println("<h1>This username already exists.Choose something else</h1");
-		response.sendRedirect("http://127.0.0.1:8080/Project_programs/login.jsp");
+		response.sendRedirect("https://tomcat-sample.herokuapp.com/login.jsp");
 
 	}
 	else{
@@ -73,7 +73,7 @@
 		st.execute(query);
 
 		out.println("<h1>Registered Successfully</h1>");
-		out.println("<a href=http://127.0.0.1:8080/Project_programs/main.jsp><h1>Click here to login<h1></a>");	
+		out.println("<a href=https://tomcat-sample.herokuapp.com/main.jsp><h1>Click here to login<h1></a>");	
 
 		}
 		catch(Exception e){

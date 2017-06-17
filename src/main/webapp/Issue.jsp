@@ -2,7 +2,7 @@
 <%@page import="java.sql.*"%>
 <%
 out.println("<h1 align=center>Welcome "+session.getAttribute("username")+"</h1>");
-out.println("<a align=center href=http://127.0.0.1:8080/Project_programs/home.jsp><h1>HOME</h1></a>");
+out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><h1>HOME</h1></a>");
 %>
 <html>
 	<head>
@@ -38,8 +38,8 @@ out.println("<a align=center href=http://127.0.0.1:8080/Project_programs/home.js
 	rollno=request.getParameter("rollno");
 	mobile=request.getParameter("mob");
 
-	Class.forName("com.mysql.jdbc.Driver");
-	con=DriverManager.getConnection("jdbc:mysql://localhost:3306/","root","atreyasa");
+	Class.forName("org.postgresql.Driver");
+	con=DriverManager.getConnection("JDBC_DATABASE_URL");
 	st=con.createStatement();
 	st.execute("use "+uname);
 	
