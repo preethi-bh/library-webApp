@@ -14,7 +14,7 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 			String name=(String)session.getAttribute("username");
 			Class.forName("org.postgresql.Driver");
 			 String dbUrl = System.getenv("JDBC_DATABASE_URL");
-			con=DriverManager.getConnection("dbUrl");
+			con=DriverManager.getConnection(dbUrl);
 			st=con.createStatement();
 			query="use "+name;
 			st.executeUpdate(query);

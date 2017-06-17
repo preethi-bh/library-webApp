@@ -40,7 +40,7 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 
 	Class.forName("org.postgresql.Driver");
 	 String dbUrl = System.getenv("JDBC_DATABASE_URL");
-	con=DriverManager.getConnection("dbUrl");
+	con=DriverManager.getConnection(dbUrl);
 	st=con.createStatement();
 	st.execute("use "+uname);
 	

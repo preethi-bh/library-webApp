@@ -31,7 +31,7 @@ out.println("<a align=center href=http://127.0.0.1:8080/Project_programs/home.js
 	
 	Class.forName("org.postgresql.Driver");
 	 String dbUrl = System.getenv("JDBC_DATABASE_URL");
-	con=DriverManager.getConnection("dbUrl");
+	con=DriverManager.getConnection(dbUrl);
 	st=con.createStatement();
 	st.execute("use "+uname);
 
