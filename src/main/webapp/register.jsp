@@ -41,47 +41,45 @@
 	confirmp=request.getParameter("password2");
 	 if(name!=null&&password!=null)
  	{
-        if(password.equals(confirmp)){
-	st=con.createStatement();
-	st.executeUpdate("\\c DATABASE");
-	rs=st.executeQuery("select * from college where username='"+name+"'");
+        	if(password.equals(confirmp)){
+			st=con.createStatement();
+			st.executeUpdate("\\c DATABASE");
 
-	if(rs!=null&&rs.next()){
-		out.println("<h1>This username already exists.Choose something else</h1");
-		response.sendRedirect("https://tomcat-sample.herokuapp.com/login.jsp");
+			//See if user already exists
+			rs=st.executeQuery("select * from college where username='"+name+"'");
 
-	}
-	else{
-		//inserting the new administrators's value in the admins table
+			if(rs!=null&&rs.next()){
+				out.println("<h1>This username already exists.Choose something else</h1");
+				response.sendRedirect("https://tomcat-sample.herokuapp.com/login.jsp");
 
-		query="insert into college(username,password) values('"+name+"','"+password+"')";
-		result=st.executeUpdate(query);
+			}
+			else{
+				//inserting the new administrators's value in the admins table
 
-			
+				query="insert into college(username,password) values('"+name+"','"+password+"')";
+				result=st.executeUpdate(query);
 
 
-		try{
-		//creating tables in the database	
-		query="create table Book(username varchar(20),BookId serial, Name varchar(50) not null,Author varchar(50) not null,Edition varchar(10) not null,Subject varchar(10),primary key(BookId),foreign key(username) references college(username))";
-		st.execute(query);
-		query="create table User(username varchar(20),Name varchar(20) not null,Rollno varchar(10),Password varchar(20),Dept varchar(5) not null,Year numeric(5) not null,MobileNo numeric,primary key(Rollno),foreign key(username) references college(username))";
-		st.execute(query);
-		query="create table BookTrans(username varchar(20),BookId int not null auto_increment,Name varchar(50) ,Author varchar(50),Edition varchar(10),Rollno varchar(10),MobileNo numeric,Status varchar(10) default 'Available',Date_of_Issue timestamp, Renew_Date timestamp, primary key(BookId),foreign key(BookId) references Book(BookId),foreign key(Rollno) references User(Rollno),foreign key(username) references college(username)";
-		st.execute(query);
+				try{
+					//creating tables in the database	
+					query="create table Book(username varchar(20),BookId serial, Name varchar(50) not null,Author varchar(50) not null,Edition varchar(10) not null,Subject varchar(10),primary key(BookId),foreign key(username) references college(username))";
+					st.execute(query);
+					query="create table User(username varchar(20),Name varchar(20) not null,Rollno varchar(10),Password varchar(20),Dept varchar(5) not null,Year numeric(5) not null,MobileNo numeric,primary key(Rollno),foreign key(username) references college(username))";
+					st.execute(query);
+					query="create table BookTrans(username varchar(20),BookId int not null auto_increment,Name varchar(50) ,Author varchar(50),Edition varchar(10),Rollno varchar(10),MobileNo numeric,Status varchar(10) default 'Available',Date_of_Issue timestamp, Renew_Date timestamp, primary key(BookId),foreign key(BookId) references Book(BookId),foreign key(Rollno) references User(Rollno),foreign key(username) references college(username)";
+					st.execute(query);
 
-		out.println("<h1>Registered Successfully</h1>");
-		out.println("<a href=https://tomcat-sample.herokuapp.com/main.jsp><h1>Click here to login<h1></a>");	
+					out.println("<h1>Registered Successfully</h1>");
+					out.println("<a href=https://tomcat-sample.herokuapp.com/main.jsp><h1>Click here to login<h1></a>");	
 
-		}
-		catch(Exception e){
-			out.println(e);
-		}
+				}
+				catch(Exception e){
+					out.println(e);
+				}
+
+			    }
 		
-		
-
-		}
-		
-	    }
+	    	}
 
 	}
 
@@ -90,7 +88,6 @@
 	}
      }
 	
-    }
    catch(Exception e){
 	out.println(e);
     }
