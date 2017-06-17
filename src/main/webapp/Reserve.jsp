@@ -37,7 +37,8 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 	id=request.getParameter("id");
 	rollno=request.getParameter("rollno");
 	Class.forName("org.postgresql.Driver");
-	con=DriverManager.getConnection("JDBC_DATABASE_URL");
+	 String dbUrl = System.getenv("JDBC_DATABASE_URL");
+	con=DriverManager.getConnection("dbUrl");
 	st=con.createStatement();
 	st.execute("use "+uname);
 	

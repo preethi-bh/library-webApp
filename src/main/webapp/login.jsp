@@ -13,7 +13,8 @@
 	
 	try{
 		Class.forName("org.postgresql.Driver");
-		con=DriverManager.getConnection("JDBC_DATABASE_URL");
+		 String dbUrl = System.getenv("JDBC_DATABASE_URL");
+		con=DriverManager.getConnection("dbUrl");
 
 		name=request.getParameter("username");
 		password=request.getParameter("password");
