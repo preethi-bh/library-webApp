@@ -15,7 +15,7 @@
         <groupId>org.apache.tomcat.embed</groupId>
         <artifactId>tomcat-embed-core</artifactId>
         <version>${tomcat.version}</version>
-    </dependency>
+    </dependency>s
     <dependency>
         <groupId>org.apache.tomcat.embed</groupId>
         <artifactId>tomcat-embed-logging-juli</artifactId>
@@ -41,6 +41,11 @@
         <artifactId>tomcat-jsp-api</artifactId>
         <version>${tomcat.version}</version>
     </dependency>
+	<dependency>
+  	<groupId>org.postgresql</groupId>
+  	<artifactId>postgresql</artifactId>
+  	<version>9.6</version>
+	</dependency>
   </dependencies>
   <build>
     <finalName>embeddedTomcatSample</finalName>
