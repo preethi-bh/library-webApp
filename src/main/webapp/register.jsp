@@ -1,4 +1,4 @@
-<%@page language="java" import="java.sql.*"%>
+.<%@page language="java" import="java.sql.*"%>
 <%@page import="java.io.*"%>
 <html>
 	<head>
@@ -43,7 +43,7 @@
  	{
         if(password.equals(confirmp)){
 	st=con.createStatement();
-	st.executeUpdate("\c DATABASE");
+	st.executeUpdate("\\c DATABASE");
 	rs=st.executeQuery("select * from college where username='"+name+"'");
 
 	if(rs!=null&&rs.next()){

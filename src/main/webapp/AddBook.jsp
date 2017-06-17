@@ -49,26 +49,27 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 	 String dbUrl = System.getenv("JDBC_DATABASE_URL");
 	con=DriverManager.getConnection(dbUrl);
 	st=con.createStatement();
-	st.execute("use "+uname);
 
 	if(name!=null&&author!=null&&edition!=null)
 	{
 		try{
 			
-			query="insert into book(Name,Author,Edition,Subject) values(?,?,?,?)";
+			query="insert into book(username,Name,Author,Edition,Subject) values(?.?,?,?,?)";
 			pst=con.prepareStatement(query);
-			pst.setString(1,name);
-			pst.setString(2,author);
-			pst.setString(3,edition);
-			pst.setString(4,sub);
+			pst.setString(1,uname);
+			pst.setString(2,name);
+			pst.setString(3,author);
+			pst.setString(4,edition);
+			pst.setString(5,sub);
 			res=pst.executeUpdate();
 		
 			//inserting these values in book trans table
-			query="insert into booktrans(Name,Author,Edition) values(?,?,?)";
+			query="insert into booktrans(username,Name,Author,Edition) values(?,?,?,?)";
 			pst=con.prepareStatement(query);
-			pst.setString(1,name);
-			pst.setString(2,author);
-			pst.setString(3,edition);
+			pst.setString(1,username)
+			pst.setString(2,name);
+			pst.setString(3,author);
+			pst.setString(4,edition);
 			res2=pst.executeUpdate();
 
 			
