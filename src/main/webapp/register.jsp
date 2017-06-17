@@ -43,8 +43,7 @@
  	{
         	if(password.equals(confirmp)){
 			st=con.createStatement();
-			st.executeUpdate("\\c DATABASE");
-
+			
 			//See if user already exists
 			rs=st.executeQuery("select * from college where username='"+name+"'");
 
