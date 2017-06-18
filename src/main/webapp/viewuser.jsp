@@ -36,7 +36,7 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 	
 		try{
 			
-			query="select * from user where username=?";
+			query="select * from student where username=?";
 			pst=con.prepareStatement(query);
 			pst.setString(1,uname);
 			rs=pst.executeQuery();

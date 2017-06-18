@@ -13,9 +13,7 @@ out.println("<a align=center href=http://127.0.0.1:8080/Project_programs/home.js
 	</head>
 	<body>
 		<div class="style">
-			<h2>
-			<TABLE border="1">
-			<TR><TH>BookId</TH><TH>Name</TH><TH>Author</TH><TH>Edition</TH><TH>Rollno</TH><TH>MobileNo</TH><TH>Status</TH><TH>Renew_Date</TH></TR>
+			
 	
 <%!
 	String name,author,edition,sub,query,uname;
@@ -34,14 +32,17 @@ out.println("<a align=center href=http://127.0.0.1:8080/Project_programs/home.js
 	con=DriverManager.getConnection(dbUrl);
 	st=con.createStatement();
 
+	try{
+		query="select * from booktrans where username='"+uname+"'";
+		pst=con.prepareStatement(query);
+		rs=pst.executeQuery();
 	
-		try{
-			
-			query="select * from booktrans where username='"+uname+"'";
-			pst=con.prepareStatement(query);
-			rs=pst.executeQuery();
-			
-			while(rs!=null&&rs.next()){%>
+		if(rs!=null){
+			%><h2>
+			<TABLE border="1">
+			<TR><TH>BookId</TH><TH>Name</TH><TH>Author</TH><TH>Edition</TH><TH>Rollno</TH><TH>MobileNo</TH><TH>Status</TH><TH>Renew_Date</TH></TR><%
+				
+			while(rs.next()){%>
 			<TR>
 			<td><%=rs.getString(1)%></td>
 			<td><%=rs.getString(2)%></td>
@@ -53,13 +54,16 @@ out.println("<a align=center href=http://127.0.0.1:8080/Project_programs/home.js
 			<td><%=rs.getString(8)%></td>
 			</TR>
 			
-			
-	  <%
+	  		<%
 		        }
-	          }
-		catch(Exception e){
-			out.println("<h1>"+e);
 		}
+		else{
+			out.println("No books present in the library,enter some book records first");
+	          }
+	}
+	catch(Exception e){
+		out.println("<h1>"+e);
+	}
 	
 %>
 </TABLE>

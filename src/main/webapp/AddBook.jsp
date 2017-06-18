@@ -66,7 +66,7 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 			//inserting these values in book trans table
 			query="insert into booktrans(username,Name,Author,Edition) values(?,?,?,?)";
 			pst=con.prepareStatement(query);
-			pst.setString(1,username)
+			pst.setString(1,uname);
 			pst.setString(2,name);
 			pst.setString(3,author);
 			pst.setString(4,edition);
