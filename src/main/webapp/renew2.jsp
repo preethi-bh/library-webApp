@@ -22,7 +22,6 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 <%!
 	String name,author,edition,sub,query,uname;
 	Connection con=null;
-	Statement st;
 	PreparedStatement pst;
 	ResultSet rs;
 	int res,res2;
@@ -34,7 +33,6 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 	Class.forName("org.postgresql.Driver");
 	 String dbUrl = System.getenv("JDBC_DATABASE_URL");
 	con=DriverManager.getConnection(dbUrl);
-	st=con.createStatement();
 	Date d=new Date(System.currentTimeMillis());	
 	SimpleDateFormat ft = new SimpleDateFormat ("dd-M-yyyy hh:mm:ss");
 	out.println("<h4>Today's date is "+ft.format(d)+"</h4>");
@@ -63,6 +61,11 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 		catch(Exception e){
 			out.println("<h1>"+e);
 		}
+	finally {
+    					try { rs.close(); } catch (Exception e) { /* ignored */ }
+    					try { pst.close(); } catch (Exception e) { /* ignored */ }
+    					try { con.close(); } catch (Exception e) { /* ignored */ }
+	}
 	
 %>
 </TABLE>

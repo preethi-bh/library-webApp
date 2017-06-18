@@ -32,7 +32,6 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 <%!
 	String name,author,edition,sub,query,uname;
 	Connection con=null;
-	Statement st;
 	PreparedStatement pst;
 	ResultSet rs;
 	int res,res2;
@@ -77,9 +76,15 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 				out.println("<br><h1>Inserted into Database successfully</h1>");
 
 		}
+		
 		catch(Exception e){
 			out.println(e);
 		}
+		finally {
+    					try { rs.close(); } catch (Exception e) { /* ignored */ }
+    					try { pst.close(); } catch (Exception e) { /* ignored */ }
+    					try { con.close(); } catch (Exception e) { /* ignored */ }
+}
 	}
 	
 %>

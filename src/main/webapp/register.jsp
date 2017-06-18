@@ -90,4 +90,9 @@
    catch(Exception e){
 	out.println(e);
     }
+	finally {
+    					try { rs.close(); } catch (Exception e) { /* ignored */ }
+    					try { st.close(); } catch (Exception e) { /* ignored */ }
+    					try { con.close(); } catch (Exception e) { /* ignored */ }
+	}
 %>

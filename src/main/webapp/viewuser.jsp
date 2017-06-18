@@ -20,7 +20,6 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 <%!
 	String name,author,edition,sub,query,uname;
 	Connection con=null;
-	Statement st;
 	PreparedStatement pst;
 	ResultSet rs;
 %>
@@ -31,7 +30,6 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 	Class.forName("org.postgresql.Driver");
 	 String dbUrl = System.getenv("JDBC_DATABASE_URL");
 	con=DriverManager.getConnection(dbUrl);
-	st=con.createStatement();
 
 	
 		try{
@@ -57,6 +55,11 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 		catch(Exception e){
 			out.println("<h1>"+e);
 		}
+		finally {
+    					try { rs.close(); } catch (Exception e) { /* ignored */ }
+    					try { pst.close(); } catch (Exception e) { /* ignored */ }
+    					try { con.close(); } catch (Exception e) { /* ignored */ }
+	}
 	
 %>
 </TABLE>

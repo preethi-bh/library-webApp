@@ -27,7 +27,6 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 <%!
 	String id,rollno,query,uname,mobile;
 	Connection con=null;
-	Statement st;
 	PreparedStatement pst;
 	ResultSet rs;
 	int res;
@@ -41,7 +40,7 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 	Class.forName("org.postgresql.Driver");
 	 String dbUrl = System.getenv("JDBC_DATABASE_URL");
 	con=DriverManager.getConnection(dbUrl);
-	st=con.createStatement();
+
 	
 	if(id!=null&&rollno!=null)
 	try{
@@ -63,6 +62,11 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 		alert("Check the details you entered properly.The user may not be present or The book id may be wrong");
 	</script>
 	<%}
+	finally {
+    					try { rs.close(); } catch (Exception e) { /* ignored */ }
+    					try { pst.close(); } catch (Exception e) { /* ignored */ }
+    					try { con.close(); } catch (Exception e) { /* ignored */ }
+	}
 %>
 	
 </body>

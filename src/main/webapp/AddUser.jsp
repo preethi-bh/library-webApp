@@ -35,7 +35,6 @@
 	String name,rollno,dept,year,mobileno,uname,query,pass;
 	String[] cards;
 	Connection con=null;
-	Statement st;
 	PreparedStatement pst;
 	ResultSet rs;
 	int res,res1,i;
@@ -54,7 +53,6 @@
 	Class.forName("org.postgresql.Driver");
 	 String dbUrl = System.getenv("JDBC_DATABASE_URL");
 	con=DriverManager.getConnection(dbUrl);
-	st=con.createStatement();
 	
      	if(name!=null&&rollno!=null)
 	  try{
@@ -74,9 +72,15 @@
 
 		
 	   }
+	
 	  catch(Exception e){
 		out.println(e);
 	   }
+	finally {
+    					try { rs.close(); } catch (Exception e) { /* ignored */ }
+    					try { pst.close(); } catch (Exception e) { /* ignored */ }
+    					try { con.close(); } catch (Exception e) { /* ignored */ }
+		}
 %>
 	
 		

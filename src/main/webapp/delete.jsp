@@ -45,19 +45,17 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 			catch(Exception e){
 				out.println(e);
 			}
+		finally {
+    					
+    					try { st.close(); } catch (Exception e) { /* ignored */ }
+    					try { con.close(); } catch (Exception e) { /* ignored */ }
+	}
+
 	%>	
 		
 		
 		
-	<%
-		try{
-			
-		  }
-			catch(Exception e){
-				out.println(e);
-			}
-	%>
-		
+	
 		
 			
 			

@@ -18,7 +18,6 @@ out.println("<a align=center href=home.jsp><h1>HOME</h1></a>");
 <%!
 	String name,author,edition,sub,query,uname;
 	Connection con=null;
-	Statement st;
 	PreparedStatement pst;
 	ResultSet rs;
 	int res,res2;
@@ -30,7 +29,6 @@ out.println("<a align=center href=home.jsp><h1>HOME</h1></a>");
 	Class.forName("org.postgresql.Driver");
 	 String dbUrl = System.getenv("JDBC_DATABASE_URL");
 	con=DriverManager.getConnection(dbUrl);
-	st=con.createStatement();
 
 	try{
 		query="select * from booktrans where username='"+uname+"'";
@@ -61,8 +59,14 @@ out.println("<a align=center href=home.jsp><h1>HOME</h1></a>");
 			out.println("No books present in the library,enter some book records first");
 	          }
 	}
+	
 	catch(Exception e){
 		out.println("<h1>"+e);
+	}
+	finally {
+    					try { rs.close(); } catch (Exception e) { /* ignored */ }
+    					try { pst.close(); } catch (Exception e) { /* ignored */ }
+    					try { con.close(); } catch (Exception e) { /* ignored */ }
 	}
 	
 %>

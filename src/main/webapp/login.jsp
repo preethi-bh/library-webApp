@@ -40,6 +40,11 @@
 	catch(Exception e){
 		out.println(e);
 	}
+	finally {
+    					try { rs.close();rs1.close(); } catch (Exception e) { /* ignored */ }
+    					try { st.close();st1.close(); } catch (Exception e) { /* ignored */ }
+    					try { con.close(); } catch (Exception e) { /* ignored */ }
+	}
 
 %>
 	
