@@ -35,7 +35,7 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 	 String dbUrl = System.getenv("JDBC_DATABASE_URL");
 	con=DriverManager.getConnection(dbUrl);
 	st=con.createStatement();
-	Date d=new Date();	
+	Date d=new Date(System.currentTimeMillis());	
 	SimpleDateFormat ft = new SimpleDateFormat ("dd-M-yyyy hh:mm:ss");
 	out.println("<h4>Today's date is "+ft.format(d)+"</h4>");
 		try{
