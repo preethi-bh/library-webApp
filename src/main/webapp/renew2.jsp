@@ -36,8 +36,8 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 	con=DriverManager.getConnection(dbUrl);
 	st=con.createStatement();
 	Date d=new Date();	
-	SimpleDateFormat ft = new SimpleDateFormat ("yyyy.MM.dd");
-	out.println("<h4>Today's date is "+ft.format(d)+"</h4>");
+	//SimpleDateFormat ft = new SimpleDateFormat ("yyyy.MM.dd");
+	out.println("<h4>Today's date is "+d+"</h4>");
 		try{
 			
 			query="select * from booktrans where Status='Issued' and Renew_Date=? and username=?";
