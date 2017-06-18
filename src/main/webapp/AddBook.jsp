@@ -52,7 +52,7 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 	{
 		try{
 			
-			query="insert into book(username,Name,Author,Edition,Subject) values(?.?,?,?,?)";
+			query="insert into book(username,name,author,edition,subject) values(?.?,?,?,?)";
 			pst=con.prepareStatement(query);
 			pst.setString(1,uname);
 			pst.setString(2,name);
@@ -83,7 +83,7 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
     					try { rs.close(); } catch (Exception e) { /* ignored */ }
     					try { pst.close(); } catch (Exception e) { /* ignored */ }
     					try { con.close(); } catch (Exception e) { /* ignored */ }
-}
+			}
 	}
 	
 %>
