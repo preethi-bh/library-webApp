@@ -34,13 +34,13 @@
     try{
 
 	Class.forName("org.postgresql.Driver");
-	 String dbUrl = System.getenv("JDBC_DATABASE_URL");
+	String dbUrl = System.getenv("JDBC_DATABASE_URL");
 	con=DriverManager.getConnection(dbUrl);
 	name=request.getParameter("username");
 	password=request.getParameter("password");
 	confirmp=request.getParameter("password2");
 	 if(name!=null&&password!=null)
- 	{
+ 	   {
         	if(password.equals(confirmp)){
 			st=con.createStatement();
 			
@@ -57,17 +57,20 @@
 
 				query="insert into college(username,password) values('"+name+"','"+password+"')";
 				result=st.executeUpdate(query);
+				if(result>0){
+					out.println("<h1>Registered Successfully</h1>");
+					out.println("<a href=main.jsp><h1>Click here to login<h1></a>");}
+					
 			    }
 		
 	    	}
 
-	}
 
-    else{
+    		else{
 		out.println("<h1>Passwords do not match</h1>");
-	}
+		}
+     	  }
      }
-	
    catch(Exception e){
 	out.println(e);
     }
