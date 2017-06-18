@@ -40,30 +40,32 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 	 String dbUrl = System.getenv("JDBC_DATABASE_URL");
 	con=DriverManager.getConnection(dbUrl);
 	st=con.createStatement();
-	st.execute("use "+uname);
 	
 	if(id!=null&&rollno!=null)
 	try{
-		/*query="select Status from booktrans where Name=?";
+		/*query="select Status from booktrans where Name=? and username=?";
 		pst=con.prepareStatement(query);
 		pst.setString(1,id);
+		pst.setString(2,uname);
 		rs=pst.executeQuery();
 		while(rs.next()){
 			if(rs.getString("Status").equals("Available")){
 				out.println("This book is available in library");
 				break;
 			}*/
-		query="select MIN(Renew_Date) as Renew_Date,BookId from BookTrans where Status='Issued' and Name=?";
+		query="select MIN(Renew_Date) as Renew_Date,BookId from BookTrans where Status='Issued' and Name=? and username=?";
 		pst=con.prepareStatement(query);
 		pst.setString(1,id);
+		pst.setString(2,uname);
 		rs=pst.executeQuery();
 		while(rs.next()){
 			reserve=rs.getString("Renew_Date");
 		}
-		query="update BookTrans set Status='Reserved',Rollno=? where Renew_Date=?";
+		query="update BookTrans set Status='Reserved',Rollno=? where Renew_Date=? and username=?";
 		pst=con.prepareStatement(query);
 		pst.setString(1,rollno);
 		pst.setString(2,reserve);
+		pst.setString(3,uname);
 		res=pst.executeUpdate();
 
 		if(res>0&&res1>0)

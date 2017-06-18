@@ -32,13 +32,13 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 	 String dbUrl = System.getenv("JDBC_DATABASE_URL");
 	con=DriverManager.getConnection(dbUrl);
 	st=con.createStatement();
-	st.execute("use "+uname);
 
 	
 		try{
 			
-			query="select * from user";
+			query="select * from user where username=?";
 			pst=con.prepareStatement(query);
+			pst.setString(1,uname);
 			rs=pst.executeQuery();
 			
 			while(rs!=null&&rs.next()){%>

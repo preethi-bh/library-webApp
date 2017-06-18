@@ -33,12 +33,11 @@ out.println("<a align=center href=http://127.0.0.1:8080/Project_programs/home.js
 	 String dbUrl = System.getenv("JDBC_DATABASE_URL");
 	con=DriverManager.getConnection(dbUrl);
 	st=con.createStatement();
-	st.execute("use "+uname);
 
 	
 		try{
 			
-			query="select * from booktrans";
+			query="select * from booktrans where username='"+uname+"'";
 			pst=con.prepareStatement(query);
 			rs=pst.executeQuery();
 			

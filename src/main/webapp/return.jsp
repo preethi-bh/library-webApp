@@ -41,37 +41,41 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 	 String dbUrl = System.getenv("JDBC_DATABASE_URL");
 	con=DriverManager.getConnection(dbUrl);
 	st=con.createStatement();
-	st.execute("use "+uname);
 	
 	if(id!=null&&rollno!=null)
 	try{
-		query="select Status,Rollno from BookTrans where BookId=?";
+		query="select Status,Rollno from BookTrans where BookId=? and username=?";
 		pst=con.prepareStatement(query);
 		pst.setString(1,id);
+		pst.setString(2,uname);
 		rs=pst.executeQuery();
 		while(rs.next()){
 			status=rs.getString("Status");
 			rollno=rs.getString("Rollno");
 		}
 		if(status.equals("Reserved")){
-			query="select mobileno from user where Rollno=?";
+			query="select mobileno from user where Rollno=? and username=?";
 			pst=con.prepareStatement(query);
 			pst.setString(1,rollno);
+			pst.setString(2,uname);
 			rs=pst.executeQuery();
 			while(rs.next()){
 				mob=rs.getString("MobileNo");
 			}			
 
-			query="update BookTrans set Status='Issued',MobileNo=? where BookId=?";
+			query="update BookTrans set Status='Issued',MobileNo=? where BookId=? and username=?";
 			pst=con.prepareStatement(query);
 			pst.setString(1,mob);
 			pst.setString(2,id);
+			pst.setString(3,uname);
 			res=pst.executeUpdate();
 				
 		}
 		else{
-			query="update BookTrans set Status='Available',Rollno='NULL' where BookId=?";
+			query="update BookTrans set Status='Available',Rollno='NULL' where BookId=? and username=?";
 			pst=con.prepareStatement(query);
+			pst.setString(1,id);
+			pst.setString(2,uname);
 			res=pst.executeUpdate();
 		}
 

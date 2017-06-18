@@ -20,6 +20,7 @@
 				<form method="post" action="AddUser.jsp">
 					Name of Student:<input type="text" name="name" id="s" required><br>
 					Rollno:<input type="text" name="rollno" id="s" required><br>
+					Password:<input type="password" name="pass" id="s" required><br>
 					Dept:<input type="text" name="dept" id="s" required><br>
 					Year:<input type="text" name="year" id="s" required><br>
 					MobileNo:<input type="text" name="mob" id="s" required><br>	
@@ -31,7 +32,7 @@
 	</body>
 
 <%!
-	String name,rollno,dept,year,mobileno,uname,query;
+	String name,rollno,dept,year,mobileno,uname,query,pass;
 	String[] cards;
 	Connection con=null;
 	Statement st;
@@ -44,6 +45,7 @@
 
 	name=request.getParameter("name");
 	rollno=request.getParameter("rollno");
+	pass=request.getParameter("pass");
 	dept=request.getParameter("dept");
 	year=request.getParameter("year");
 	mobileno=request.getParameter("mob");
@@ -53,17 +55,18 @@
 	 String dbUrl = System.getenv("JDBC_DATABASE_URL");
 	con=DriverManager.getConnection(dbUrl);
 	st=con.createStatement();
-	st.execute("use "+uname);
 	
      	if(name!=null&&rollno!=null)
 	  try{
-		query="insert into user values(?,?,?,?,?)";
+		query="insert into user values(?,?,?,?,?,?,?)";
 		pst=con.prepareStatement(query);
-		pst.setString(1,name);
-		pst.setString(2,rollno);
-		pst.setString(3,dept);
-		pst.setString(4,year);
-		pst.setString(5,mobileno);
+		pst.setString(1,uname);
+		pst.setString(2,name);
+		pst.setString(3,rollno);
+		pst.setString(4,pass);
+		pst.setString(5,dept);
+		pst.setString(6,year);
+		pst.setString(7,mobileno);
 		res=pst.executeUpdate();
 	
 		if(res>0)

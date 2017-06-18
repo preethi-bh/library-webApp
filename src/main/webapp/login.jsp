@@ -24,8 +24,8 @@
 		st=con.createStatement();
 		st1=con.createStatement();
 
-		rs=st.executeQuery("select * from admins where username='"+name+"' and password='"+password+"'");
-		rs1=st1.executeQuery("select * from admins where username='"+name+"' and password!='"+password+"'");
+		rs=st.executeQuery("select * from college where username='"+name+"' and password='"+password+"'");
+		rs1=st1.executeQuery("select * from college where username='"+name+"' and password!='"+password+"'");
 
 		if(rs!=null&&rs.next()){
 			response.sendRedirect("https://tomcat-sample.herokuapp.com/home.jsp");

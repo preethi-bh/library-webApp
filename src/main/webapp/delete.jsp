@@ -16,8 +16,6 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 			 String dbUrl = System.getenv("JDBC_DATABASE_URL");
 			con=DriverManager.getConnection(dbUrl);
 			st=con.createStatement();
-			query="use "+name;
-			st.executeUpdate(query);
 		  }
 			catch(Exception e){
 				out.println(e);

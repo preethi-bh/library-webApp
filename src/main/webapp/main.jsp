@@ -13,7 +13,7 @@
 		<fieldset align="center">
 		<legend><b>Login Details</b></legend>
 			<form action="login.jsp" method="post">
-			Username:<input type="text" name="username" id="s" placeholder="Enter your Username" required/><br>
+			College Code:<input type="text" name="username" id="s" placeholder="Enter your College code" required/><br>
 			Password:<input type="password" name="password" id="s" placeholder="Enter your Password" required/><br>
 			<input type="submit" id="s" value="Login"><br>
 			Dont Have an account?<a href="register.jsp">Register Here</a>
