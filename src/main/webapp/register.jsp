@@ -63,7 +63,7 @@
 					//creating tables in the database	
 					query="create table Book(username varchar(20),BookId serial, Name varchar(50) not null,Author varchar(50) not null,Edition varchar(10) not null,Subject varchar(10),primary key(BookId),foreign key(username) references college(username))";
 					st.execute(query);
-					query="create table User(username varchar(20),Name varchar(20) not null,Rollno varchar(10),Password varchar(20),Dept varchar(5) not null,Year numeric(5) not null,MobileNo numeric,primary key(Rollno),foreign key(username) references college(username))";
+					query="create table Users(username varchar(20),Name varchar(20) not null,Rollno varchar(10),Password varchar(20),Dept varchar(5) not null,Year numeric(5) not null,MobileNo numeric,primary key(Rollno),foreign key(username) references college(username))";
 					st.execute(query);
 					query="create table BookTrans(username varchar(20),BookId int not null auto_increment,Name varchar(50) ,Author varchar(50),Edition varchar(10),Rollno varchar(10),MobileNo numeric,Status varchar(10) default 'Available',Date_of_Issue timestamp, Renew_Date timestamp, primary key(BookId),foreign key(BookId) references Book(BookId),foreign key(Rollno) references User(Rollno),foreign key(username) references college(username)";
 					st.execute(query);
