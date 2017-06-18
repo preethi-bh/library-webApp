@@ -42,7 +42,7 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 			
 			query="select * from booktrans where Status='Issued' and Renew_Date=? and username=?";
 			pst=con.prepareStatement(query);
-			pst.setString(1,ft.format(d));
+			pst.setDate(1,ft.format(d));
 			pst.setString(2,uname);
 			rs=pst.executeQuery();
 			
