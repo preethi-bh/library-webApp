@@ -2,7 +2,7 @@
 <%@page import="java.sql.*"%>
 <%
 out.println("<h1 align=center>Welcome "+session.getAttribute("username")+"</h1>");
-out.println("<a align=center href=http://127.0.0.1:8080/Project_programs/home.jsp><h1>HOME</h1></a>");
+out.println("<a align=center href=home.jsp><h1>HOME</h1></a>");
 %>
 <html>
 	<head>
