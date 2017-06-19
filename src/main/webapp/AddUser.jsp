@@ -63,7 +63,7 @@
 		pst.setString(3,rollno);
 		pst.setString(4,pass);
 		pst.setString(5,dept);
-		pst.setInt(6,year);
+		pst.setString(6,year);
 		pst.setString(7,mobileno);
 		res=pst.executeUpdate();
 	
