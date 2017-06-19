@@ -25,7 +25,7 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 		</div>
 
 <%!
-	String rollno,query,uname,mobile;
+	String id1,rollno,query,uname,mobile;
 	Connection con=null;
 	PreparedStatement pst;
 	ResultSet rs;
@@ -33,8 +33,9 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 %>
 <%
 	String uname=(String)session.getAttribute("username");
-	id=Integer.parseInt(request.getParameter("id"));
-	rollno=request.getParameter("rollno");
+	id1=request.getParameter("id"));
+	id=Integer.parseInt(id1);
+:	rollno=request.getParameter("rollno");
 	mobile=request.getParameter("mob");
 
 	Class.forName("org.postgresql.Driver");
