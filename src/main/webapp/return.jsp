@@ -42,7 +42,7 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 	 String dbUrl = System.getenv("JDBC_DATABASE_URL");
 	con=DriverManager.getConnection(dbUrl);
 	
-	if(id!=null&&rollno!=null)
+	if(id!=0&&rollno!=null)
 	try{
 		query="select Status,Rollno from BookTrans where BookId=? and username=?";
 		pst=con.prepareStatement(query);
