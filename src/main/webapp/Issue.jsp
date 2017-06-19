@@ -25,7 +25,7 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 		</div>
 
 <%!
-	String,rollno,query,uname,mobile;
+	String rollno,query,uname,mobile;
 	Connection con=null;
 	PreparedStatement pst;
 	ResultSet rs;
@@ -33,7 +33,7 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 %>
 <%
 	String uname=(String)session.getAttribute("username");
-	id=request.getParameter("id");
+	id=Integer.parseInt(request.getParameter("id"));
 	rollno=request.getParameter("rollno");
 	mobile=request.getParameter("mob");
 
@@ -48,7 +48,7 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 		pst=con.prepareStatement(query);
 		pst.setString(1,rollno);
 		pst.setString(2,mobile);
-		pst.setInts(3,id);
+		pst.setInt(3,id);
 		pst.setString(4,uname);
 		res=pst.executeUpdate();
 		
