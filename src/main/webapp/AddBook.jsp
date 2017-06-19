@@ -48,7 +48,7 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 	 String dbUrl = System.getenv("JDBC_DATABASE_URL");
 	con=DriverManager.getConnection(dbUrl);
 
-	if(name!=null&&author!=null&&edition!=null)
+	if(book!=null&&author!=null&&edition!=null)
 	{
 		try{
 			
