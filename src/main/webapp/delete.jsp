@@ -19,6 +19,44 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 				</form>
 			</fieldset>
 			</div>
+
+				<!-- The Modal -->
+			<div id="myModal" class="modal">
+
+ 			 <!-- Modal content -->
+  				<div class="modal-content">
+    					<div class="modal-header">
+						<p>Alert!<p>
+      						<span class="close">&times;</span>
+    					</div>
+    					<div class="modal-body">
+      						<p>No book with this id is present in your library!</p>
+    					</div>
+    					
+  				</div>
+			</div>
+
+		<script>
+				var modal = document.getElementById('myModal');
+	
+				// Get the <span> element that closes the modal
+				var span = document.getElementsByClassName("close")[0];
+	
+			function myfunction(){
+				modal.style.display="block";
+			}
+			// When the user clicks on <span> (x), close the modal
+			span.onclick = function() {
+    			modal.style.display = "none";
+			}
+
+			// When the user clicks anywhere outside of the modal, close it
+			window.onclick = function(event) {
+    			if (event.target == modal) {
+        		modal.style.display = "none";
+    			}
+			}
+		</script>
 		</body>
 </html>
 <%!
@@ -44,14 +82,16 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 				name1=rs.getString("username");
 			}
 			if(name1.equals(name)){
-				out.println("You can't delete this book");
-			}
-			else{
+
 			query="delete from Book where BookId='"+name+"'";
 			res=st.executeUpdate(query);
-
 			if(res>0)
-				out.println("Deleted Successfully");
+				<%<script>myfunction()</script>%>
+
+				
+			}
+			else{
+			out.println("<h1>No book with this id is present in your library<h1>");
 			}
 		    }
 		  }
