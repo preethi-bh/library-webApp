@@ -22,9 +22,10 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 		</body>
 </html>
 <%!
-		String name,query;
+		String name,query,name1;
 		Connection con;
 		Statement st;
+		Resultset rs;
 		int res;
 	%>
 	<%
@@ -36,11 +37,22 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 			st=con.createStatement();
 			name=request.getParameter("book");
 			if(name!=null){
+
+			query="select * from book where bookid='"+name+"'";
+			rs=st.executeQuery(query);
+			while(rs.next()){
+				name1=rs.getString("username");
+			}
+			if(name1.equals(name)){
+				out.println("You can't delete this book");
+			}
+			else{
 			query="delete from Book where BookId='"+name+"'";
 			res=st.executeUpdate(query);
-			}
+
 			if(res>0)
 				out.println("Deleted Successfully");
+			}
 		  }
 			catch(Exception e){
 				out.println(e);
@@ -48,6 +60,7 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 		finally {
     					
     					try { st.close(); } catch (Exception e) { /* ignored */ }
+					try { rs.close();}catch(Exception e){ }
     					try { con.close(); } catch (Exception e) { /* ignored */ }
 	}
 
