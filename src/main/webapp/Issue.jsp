@@ -56,10 +56,11 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 			out.println("<h1 align=center>Inserted into Database successfully</h1>");
 
 	}
-	catch(Exception e){%>
+	catch(Exception e){
+		out.println(e);%>
 
 	<script type="text/javascript">
-		alert("Check the details you entered properly.The user may not be present or The book id may be wrong: "+e);
+		
 		
 	</script>
 	<%}
