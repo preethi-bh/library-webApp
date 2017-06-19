@@ -15,7 +15,7 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 		<div class="style">
 			<h2>
 			<TABLE border="1">
-			<TR><TH>Name</TH><TH>Rollno</TH><TH>Dept</TH><TH>Year</TH><TH>MobileNo</TH>
+			<TR><TH>CollegeName</TH><TH>Name</TH><TH>Rollno</TH><TH>Dept</TH><TH>Year<TH>MobileNo</TH>
 	
 <%!
 	String name,author,edition,sub,query,uname;
@@ -44,8 +44,9 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 			<td><%=rs.getString(1)%></td>
 			<td><%=rs.getString(2)%></td>
 			<td><%=rs.getString(3)%></td>
-			<td><%=rs.getString(4)%></td>
 			<td><%=rs.getString(5)%></td>
+			<td><%=rs.getString(6)%></td>
+			<td><%=rs.getString(7)%></td>
 			</TR>
 			
 			
