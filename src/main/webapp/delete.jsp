@@ -86,7 +86,7 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 			query="delete from Book where BookId='"+name+"'";
 			res=st.executeUpdate(query);
 			if(res>0)
-				<%<script>myfunction()</script>%>
+				%><script>myfunction();</script><%
 
 				
 			}
