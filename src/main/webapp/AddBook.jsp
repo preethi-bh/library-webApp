@@ -62,12 +62,12 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 			res=pst.executeUpdate();
 		
 			//inserting these values in book trans table
-			query="insert into booktrans(username,bname,Author,Edition) values(?,?,?,?)";
+			query="insert into booktrans(username,bname,Edition,subject) values(?,?,?,?)";
 			pst=con.prepareStatement(query);
 			pst.setString(1,uname);
 			pst.setString(2,book);
-			pst.setString(3,author);
-			pst.setString(4,edition);
+			pst.setString(3,edition);
+			pst.setString(4,subject);
 			res2=pst.executeUpdate();
 
 			
