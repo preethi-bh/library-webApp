@@ -59,7 +59,8 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 	catch(Exception e){%>
 
 	<script type="text/javascript">
-		alert("Check the details you entered properly.The user may not be present or The book id may be wrong");
+		alert("Check the details you entered properly.The user may not be present or The book id may be wrong: "+e);
+		
 	</script>
 	<%}
 	finally {
