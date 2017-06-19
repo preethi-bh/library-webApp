@@ -44,7 +44,7 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 	
 	if(id!=null&&rollno!=null)
 	try{
-		query="update BookTrans set Rollno=?,Status='Issued',MobileNo=?,Issue_Date=now(),Renew_Date=date_add(Issue_Date,Interval 15 day) where BookId=? and username=?";
+		query="update BookTrans set Rollno=?,Status='Issued',MobileNo=?,Issue_Date=now(),Renew_Date=Renew_Date+ interval '15 days' where BookId=? and username=?";
 		pst=con.prepareStatement(query);
 		pst.setString(1,rollno);
 		pst.setString(2,mobile);
