@@ -46,7 +46,7 @@
 	rollno=request.getParameter("rollno");
 	pass=request.getParameter("pass");
 	dept=request.getParameter("dept");
-	year=Integer.parstInt(request.getParameter("year"));
+	year=request.getParameter("year");
 	mobileno=request.getParameter("mob");
 	
 	
