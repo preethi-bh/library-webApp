@@ -25,13 +25,14 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 	</body>
 
 <%!
-	String id,rollno,query,uname,reserve;
+	String id,rollno,query,uname;
 	Connection con=null;
 	PreparedStatement pst;
 	ResultSet rs;
 	int res,res1;
 %>
 <%
+	Date reserve=new Date();
 	String uname=(String)session.getAttribute("username");
 	id=request.getParameter("id");
 	rollno=request.getParameter("rollno");
