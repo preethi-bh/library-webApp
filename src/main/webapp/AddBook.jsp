@@ -48,14 +48,14 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 	 String dbUrl = System.getenv("JDBC_DATABASE_URL");
 	con=DriverManager.getConnection(dbUrl);
 
-	if(name!=null&&author!=null&&edition!=null)
+	if(bname!=null&&author!=null&&edition!=null)
 	{
 		try{
 			
 			query="insert into book(username,name,author,edition,subject) values(?.?,?,?,?)";
 			pst=con.prepareStatement(query);
 			pst.setString(1,uname);
-			pst.setString(2,name);
+			pst.setString(2,bname);
 			pst.setString(3,author);
 			pst.setString(4,edition);
 			pst.setString(5,sub);
@@ -65,7 +65,7 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 			query="insert into booktrans(username,Name,Author,Edition) values(?,?,?,?)";
 			pst=con.prepareStatement(query);
 			pst.setString(1,uname);
-			pst.setString(2,name);
+			pst.setString(2,bname);
 			pst.setString(3,author);
 			pst.setString(4,edition);
 			res2=pst.executeUpdate();
