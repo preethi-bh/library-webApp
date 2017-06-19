@@ -32,6 +32,7 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 	int id,res;
 %>
 <%
+	try{
 	String uname=(String)session.getAttribute("username");
 	id1=request.getParameter("id");
 	id=Integer.parseInt(id1);
@@ -44,7 +45,6 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 
 	
 	if(id!=0&&rollno!=null&&mobile!=null)
-	try{
 		query="update BookTrans set Rollno=?,Status='Issued',MobileNo=?,Issue_Date=now(),Renew_Date=Renew_Date+ interval '15 days' where BookId=? and username=?";
 		pst=con.prepareStatement(query);
 		pst.setString(1,rollno);
