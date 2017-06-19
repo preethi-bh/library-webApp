@@ -25,11 +25,11 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 		</div>
 
 <%!
-	String id,rollno,query,uname,mobile;
+	String,rollno,query,uname,mobile;
 	Connection con=null;
 	PreparedStatement pst;
 	ResultSet rs;
-	int res;
+	int id,res;
 %>
 <%
 	String uname=(String)session.getAttribute("username");
@@ -48,7 +48,7 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 		pst=con.prepareStatement(query);
 		pst.setString(1,rollno);
 		pst.setString(2,mobile);
-		pst.setInt(3,id);
+		pst.setInts(3,id);
 		pst.setString(4,uname);
 		res=pst.executeUpdate();
 		
