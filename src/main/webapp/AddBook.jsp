@@ -30,7 +30,7 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 	</body>
 </html>
 <%!
-	String bname,author,edition,sub,query,uname;
+	String book,author,edition,sub,query,uname;
 	Connection con=null;
 	PreparedStatement pst;
 	ResultSet rs;
@@ -39,7 +39,7 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 <%
 	String uname=(String)session.getAttribute("username");
 
-	bname=request.getParameter("name");
+	book=request.getParameter("name");
 	author=request.getParameter("author");
 	edition=request.getParameter("edition");
 	sub=request.getParameter("sub");
@@ -52,20 +52,20 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 	{
 		try{
 			
-			query="insert into book(username,name,author,edition,subject) values(?.?,?,?,?)";
+			query="insert into book(username,bname,author,edition,subject) values(?,?,?,?,?)";
 			pst=con.prepareStatement(query);
 			pst.setString(1,uname);
-			pst.setString(2,bname);
+			pst.setString(2,book);
 			pst.setString(3,author);
 			pst.setString(4,edition);
 			pst.setString(5,sub);
 			res=pst.executeUpdate();
 		
 			//inserting these values in book trans table
-			query="insert into booktrans(username,Name,Author,Edition) values(?,?,?,?)";
+			query="insert into booktrans(username,bname,Author,Edition) values(?,?,?,?)";
 			pst=con.prepareStatement(query);
 			pst.setString(1,uname);
-			pst.setString(2,bname);
+			pst.setString(2,book);
 			pst.setString(3,author);
 			pst.setString(4,edition);
 			res2=pst.executeUpdate();
