@@ -48,7 +48,7 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 		pst=con.prepareStatement(query);
 		pst.setString(1,rollno);
 		pst.setString(2,mobile);
-		pst.setString(3,id);
+		pst.setInt(3,id);
 		pst.setString(4,uname);
 		res=pst.executeUpdate();
 		
