@@ -30,7 +30,7 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 	</body>
 </html>
 <%!
-	String name,author,edition,sub,query,uname;
+	String bname,author,edition,sub,query,uname;
 	Connection con=null;
 	PreparedStatement pst;
 	ResultSet rs;
@@ -39,7 +39,7 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 <%
 	String uname=(String)session.getAttribute("username");
 
-	name=request.getParameter("name");
+	bname=request.getParameter("name");
 	author=request.getParameter("author");
 	edition=request.getParameter("edition");
 	sub=request.getParameter("sub");
