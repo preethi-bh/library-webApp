@@ -51,7 +51,7 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 				out.println("This book is available in library");
 				break;
 			}*/
-		query="select Bookid,MIN(Renew_Date) as Renew_Date, from BookTrans where Status='Issued' and Name=? and username=?";
+		query="select Bookid,MIN(Renew_Date) as Renew_Date from BookTrans where Status='Issued' and Name=? and username=?";
 		pst=con.prepareStatement(query);
 		pst.setString(1,id);
 		pst.setString(2,uname);
