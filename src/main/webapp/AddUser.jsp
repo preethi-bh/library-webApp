@@ -56,7 +56,7 @@
 	
      	if(name!=null&&rollno!=null)
 	  try{
-		query="insert into user values(?,?,?,?,?,?,?)";
+		query="insert into student values(?,?,?,?,?,?,?)";
 		pst=con.prepareStatement(query);
 		pst.setString(1,uname);
 		pst.setString(2,name);
