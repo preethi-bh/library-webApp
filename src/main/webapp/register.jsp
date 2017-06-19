@@ -97,6 +97,7 @@
 				result=st.executeUpdate(query);
 				if(result>0){
 					%><script>myfunction();</script><%
+				}
 			    }
 		
 	    	}
