@@ -13,11 +13,11 @@
 	</head>
 	<body>
 		<center>
-		<div class="style">
+		<div id="f" class="style">
 			<h2>
 			<fieldset>
 				<legend><b>Add a new User</legend>
-				<form id="f" method="post" action="AddUser.jsp">
+				<form method="post" action="AddUser.jsp">
 					Name of Student:<input type="text" name="name" id="s" required><br>
 					Rollno:<input type="text" name="rollno" id="s" required><br>
 					Password:<input type="password" name="pass" id="s" required><br>
