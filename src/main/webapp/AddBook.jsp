@@ -67,7 +67,7 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 			pst.setString(1,uname);
 			pst.setString(2,book);
 			pst.setString(3,edition);
-			pst.setString(4,subject);
+			pst.setString(4,sub);
 			res2=pst.executeUpdate();
 
 			
