@@ -67,7 +67,7 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 		pst.setString(3,uname);
 		res=pst.executeUpdate();
 
-		if(res>0&&res1>0)
+		if(res>0)
 			out.println("<h1 align=center>Inserted into Database successfully<h1>");
 
 	}
