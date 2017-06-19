@@ -36,7 +36,7 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 			con=DriverManager.getConnection(dbUrl);
 			st=con.createStatement();
 			name=request.getParameter("book");
-			if(name!=null){
+		    if(name!=null){
 
 			query="select * from book where bookid='"+name+"'";
 			rs=st.executeQuery(query);
@@ -53,6 +53,7 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 			if(res>0)
 				out.println("Deleted Successfully");
 			}
+		    }
 		  }
 			catch(Exception e){
 				out.println(e);
