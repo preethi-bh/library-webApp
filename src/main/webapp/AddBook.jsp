@@ -11,13 +11,13 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 		<link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
 		
 	</head>
-	<body> 
+	<body onload="f.reset()"> 
 		<center>
 		<div class="style">
 			<h2>
 			<fieldset>
 				<legend><b>Add a new book</legend>
-				<form name="form1" method="post" action="AddBook.jsp">
+				<form id="f" name="form1" method="post" action="AddBook.jsp" >
 					Name of Book:<input type="text" name="name" id="s" required ><br>
 					Author:<input type="text" name="author" id="s" required ><br>
 					Edition:<input type="text" name="edition" id="s" required ><br>	

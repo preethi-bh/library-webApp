@@ -17,7 +17,7 @@
 			<h2>
 			<fieldset>
 				<legend><b>Add a new User</legend>
-				<form method="post" action="AddUser.jsp">
+				<form id="f" method="post" action="AddUser.jsp">
 					Name of Student:<input type="text" name="name" id="s" required><br>
 					Rollno:<input type="text" name="rollno" id="s" required><br>
 					Password:<input type="password" name="pass" id="s" required><br>
@@ -29,6 +29,12 @@
 			</fieldset>
 		</div>
 		</center>
+		<script>
+			function myFunction() {
+    			var popup = document.getElementById("f").innerHTML("Added Successfully");
+    			popup.classList.toggle("show");
+			}
+		</script>
 	</body>
 
 <%!
@@ -67,8 +73,9 @@
 		pst.setString(7,mobileno);
 		res=pst.executeUpdate();
 	
-		if(res>0)
-		out.println("<h1>Inserted into Database successfully</h1>");
+		if(res>0){
+			%><script>myfunction();</script><%
+		
 
 		
 	   }

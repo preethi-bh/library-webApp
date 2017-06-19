@@ -44,6 +44,7 @@ out.println("<a align=center href=home.jsp><h1>HOME</h1></a>");
 			<TR>
 			<td><%=rs.getString(1)%></td>
 			<td><%=rs.getString(2)%></td>
+			<td><%=rs.getString(11)%></td>
 			<td><%=rs.getString(3)%></td>
 			<td><%=rs.getString(4)%></td>
 			<td><%=rs.getString(5)%></td>
@@ -52,7 +53,6 @@ out.println("<a align=center href=home.jsp><h1>HOME</h1></a>");
 			<td><%=rs.getString(8)%></td>
 			<td><%=rs.getString(9)%></td>
 			<td><%=rs.getString(10)%></td>
-			<td><%=rs.getString(11)%></td>
 			</TR>
 			
 	  		<%

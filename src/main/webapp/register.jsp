@@ -7,6 +7,44 @@
 		<link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
 	</head>
 	</body>	
+		<!-- The Modal -->
+			<div id="myModal" class="modal">
+
+ 			 <!-- Modal content -->
+  				<div class="modal-content">
+    					<div class="modal-header">
+      						<span class="close">&times;</span>
+    					</div>
+    					<div class="modal-body">
+      						<p>Registered Successfully!</p>
+    					</div>
+    					<div class="modal-footer">
+     						<a href="main.jsp">Click here to login</a> 
+    					</div>
+  				</div>
+			</div>
+
+		<script>
+				var modal = document.getElementById('myModal');
+	
+				// Get the <span> element that closes the modal
+				var span = document.getElementsByClassName("close")[0];
+	
+			function myfunction(){
+				modal.style.display="block";
+			}
+			// When the user clicks on <span> (x), close the modal
+			span.onclick = function() {
+    			modal.style.display = "none";
+			}
+
+			// When the user clicks anywhere outside of the modal, close it
+			window.onclick = function(event) {
+    			if (event.target == modal) {
+        		modal.style.display = "none";
+    			}
+			}
+		</script>
 		<center>
 		<h1> Create an account to login</h1>
 		<div class="style"><h2>
@@ -58,9 +96,7 @@
 				query="insert into college(username,password) values('"+name+"','"+password+"')";
 				result=st.executeUpdate(query);
 				if(result>0){
-					out.println("<h1>Registered Successfully</h1>");
-					out.println("<a href=main.jsp><h1>Click here to login<h1></a>");}
-					
+					%><script>myfunction();</script><%
 			    }
 		
 	    	}
