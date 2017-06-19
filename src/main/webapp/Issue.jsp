@@ -42,7 +42,7 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 	con=DriverManager.getConnection(dbUrl);
 
 	
-	if(id!=null&&rollno!=null)
+	if(id!=0&&rollno!=null&&mobile!=null)
 	try{
 		query="update BookTrans set Rollno=?,Status='Issued',MobileNo=?,Issue_Date=now(),Renew_Date=Renew_Date+ interval '15 days' where BookId=? and username=?";
 		pst=con.prepareStatement(query);
