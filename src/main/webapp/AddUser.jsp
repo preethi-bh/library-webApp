@@ -76,7 +76,8 @@
 		if(res>0){
 			%><script>myfunction();</script><%
 		
-		}:
+		}
+
 		
 	   }
 	
