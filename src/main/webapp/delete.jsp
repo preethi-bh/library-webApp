@@ -25,7 +25,7 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 		String name,query,name1;
 		Connection con;
 		Statement st;
-		Resultset rs;
+		ResultSet rs;
 		int res;
 	%>
 	<%
