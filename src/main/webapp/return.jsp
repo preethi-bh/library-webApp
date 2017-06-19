@@ -26,15 +26,17 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 	</body>
 
 <%!
-	String id,rollno,query,uname,status,mob;
+	String id1,rollno,query,uname,status,mob;
 	Connection con=null;
 	PreparedStatement pst;
 	ResultSet rs;
-	int res;
+	int id,res;
 %>
 <%
+	try{
 	String uname=(String)session.getAttribute("username");
-	id=request.getParameter("id");
+	id1=request.getParameter("id");
+	id=Integer.parseInt("id");
 	rollno=request.getParameter("rollno");
 	Class.forName("org.postgresql.Driver");
 	 String dbUrl = System.getenv("JDBC_DATABASE_URL");
@@ -44,7 +46,7 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 	try{
 		query="select Status,Rollno from BookTrans where BookId=? and username=?";
 		pst=con.prepareStatement(query);
-		pst.setString(1,id);
+		pst.setInt(1,id);
 		pst.setString(2,uname);
 		rs=pst.executeQuery();
 		while(rs.next()){
@@ -64,7 +66,7 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 			query="update BookTrans set Status='Issued',MobileNo=? where BookId=? and username=?";
 			pst=con.prepareStatement(query);
 			pst.setString(1,mob);
-			pst.setString(2,id);
+			pst.setInt(2,id);
 			pst.setString(3,uname);
 			res=pst.executeUpdate();
 				
@@ -72,7 +74,7 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 		else{
 			query="update BookTrans set Status='Available',Rollno='NULL' where BookId=? and username=?";
 			pst=con.prepareStatement(query);
-			pst.setString(1,id);
+			pst.setInt(1,id);
 			pst.setString(2,uname);
 			res=pst.executeUpdate();
 		}
@@ -90,6 +92,10 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
     					try { pst.close(); } catch (Exception e) { /* ignored */ }
     					try { con.close(); } catch (Exception e) { /* ignored */ }
 	}
+   }
+  catch(Exception e){
+  }
 %>
+
 	
 		
