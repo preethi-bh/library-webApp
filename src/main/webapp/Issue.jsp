@@ -35,7 +35,7 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 	String uname=(String)session.getAttribute("username");
 	id1=request.getParameter("id");
 	id=Integer.parseInt(id1);
-:	rollno=request.getParameter("rollno");
+	rollno=request.getParameter("rollno");
 	mobile=request.getParameter("mob");
 
 	Class.forName("org.postgresql.Driver");
