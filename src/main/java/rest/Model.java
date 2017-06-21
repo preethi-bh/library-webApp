@@ -33,7 +33,7 @@ public class Model{
   public void setStatus(String status){
       this.status=status;
   }
-  public void setBookId(bookid){
+  public void setBookId(Int bookid){
       this.bookid=bookid;
   }
   @Override

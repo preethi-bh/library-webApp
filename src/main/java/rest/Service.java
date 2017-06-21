@@ -26,7 +26,7 @@ public class Service{
 				book.setBName(rs.getString("bname"));
 				book.setEdition(rs.getString("edition"));
 				book.setSubject(rs.getString("subject"));
-				book.setBookId(rs.getString("bookid"));
+				book.setBookId(rs.getInt("bookid"));
 				books.add(book);
 		  	 }
 		}
