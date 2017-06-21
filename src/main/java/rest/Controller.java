@@ -14,3 +14,4 @@ public class Controller{
 		Model m=service.getBookAvail(username,bname);
 		return model;
 	}
+}
