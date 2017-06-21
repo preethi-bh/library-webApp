@@ -16,7 +16,7 @@ public class Service{
 		try{
 			PreparedStatement pst;
 			String query="select * from booktrans where username=?,bname=? and status='Available'";
-			pst=con.prepareStatement(query);
+			pst=connection.prepareStatement(query);
 			pst.setString(1,username);
 			pst.setString(2,bname);
 			ResultSet rs=pst.executeQuery();
