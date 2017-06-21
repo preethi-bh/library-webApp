@@ -11,11 +11,11 @@ public class Service{
 	public Service(){
 		connection=DBUtility.getConnection();
 	}	
-	public List<Model> BooksAvail(String username,String bname){
+	public List<Model> getBookAvail(String username,String bname){
 		List<Model> books=new ArrayList<Model>();
 		try{
-			PrepareStatement pst;
-			pst.preparedStatement();
+			PreparedStatement pst;
+			pst.prepareStatement();
 			String query="select * from booktrans where username=?,bname=? and status='Available'";
 			pst.setString(1,username);
 			pst.setString(2,bname);

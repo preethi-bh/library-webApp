@@ -15,25 +15,25 @@ public class Model{
   int bookid;
   
  
-  public void setColName(){
+  public void setColName(String username){
       this.username=username;
   }
-  public void setBName(){
+  public void setBName(String bname){
       this.bname=bname;
   }
-  public void setEdition(){
+  public void setEdition(String edition){
       this.edition=edition;
   }
-  public void setSubject(){
+  public void setSubject(String subject){
       this.subject=subject;
   }
-  public void setRollno(){
+  public void setRollno(String rollno){
       this.rollno=rollno;
   }
-  public void setStatus(){
+  public void setStatus(String status){
       this.status=status;
   }
-  public void setBookId(){
+  public void setBookId(bookid){
       this.bookid=bookid;
   }
   @Override
