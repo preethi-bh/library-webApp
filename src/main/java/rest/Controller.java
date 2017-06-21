@@ -10,7 +10,7 @@ public class Controller{
 	Service service=new Service();
 	
 	@RequestMapping(value="/search")
-	public Model getBook(@PathVariable String username,String bname){
+	public List<Model> getBook(@PathVariable String username,String bname){
 		List<Model> m=service.getBookAvail(username,bname);
 		return m;
 	}
