@@ -7,7 +7,7 @@ import java.util.List;
 public class Service{
 	private Connection connection;
 	
-	public UserService(){
+	public Service(){
 		connection=DBUtility.getConnection();
 	}	
 	public List<Model> BooksAvail(String username,String bname){
@@ -33,4 +33,5 @@ public class Service{
 		e.printStackTrace();
 	}
 	return	books;	
+}
 }
