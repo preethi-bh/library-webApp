@@ -1,4 +1,7 @@
 package rest;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class Model{
   String username;
   String bname;
@@ -12,23 +15,26 @@ public class Model{
   int bookid;
   
  
-  public void SetColName(){
+  public void setColName(){
       this.username=username;
   }
-  public void SetBName(){
+  public void setBName(){
       this.bname=bname;
   }
-  public void SetEdition(){
+  public void setEdition(){
       this.edition=edition;
   }
-  public void SetSubject(){
+  public void setSubject(){
       this.subject=subject;
   }
-  public void SetRollno(){
+  public void setRollno(){
       this.rollno=rollno;
   }
-  public void SetStatus(){
+  public void setStatus(){
       this.status=status;
+  }
+  public void setBookId(){
+      this.bookid=bookid;
   }
   @Override
   public String toString(){

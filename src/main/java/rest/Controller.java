@@ -2,7 +2,7 @@ package rest;
 
 import java.util.List;
 
-import org.springframeworl.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/rest/")

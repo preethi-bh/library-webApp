@@ -3,6 +3,7 @@ package rest;
 import java.sql.*;
 import java.text.ParseException;
 import java.util.List;
+import java.util.ArrayList;
 
 public class Service{
 	private Connection connection;
@@ -13,8 +14,8 @@ public class Service{
 	public List<Model> BooksAvail(String username,String bname){
 		List<Model> books=new ArrayList<Model>();
 		try{
-			PreparedStatement pst;
-			pst.prepareStatement();
+			PrepareStatement pst;
+			pst.preparedStatement();
 			String query="select * from booktrans where username=?,bname=? and status='Available'";
 			pst.setString(1,username);
 			pst.setString(2,bname);
@@ -22,7 +23,7 @@ public class Service{
 
 			while(rs!=null&&rs.next()){
 				Model book=new Model();
-				book.setBname(rs.getString("bname"));
+				book.setBName(rs.getString("bname"));
 				book.setEdition(rs.getString("edition"));
 				book.setSubject(rs.getString("subject"));
 				book.setBookId(rs.getString("bookid"));
@@ -31,7 +32,7 @@ public class Service{
 		}
 		catch(Exception e){
 		e.printStackTrace();
-	}
+		}
 	return	books;	
 }
 }
