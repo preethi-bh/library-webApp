@@ -7,6 +7,11 @@
   <packaging>jar</packaging>
   <name>embeddedTomcatSample Maven Webapp</name>
   <url>http://maven.apache.org</url>
+<parent>
+	  <groupId>org.springframework.boot</groupId>
+	  <artifactId>spring-boot-starter-parent</artifactId>
+	  <version>1.3.1.RELEASE</version>
+  </parent> 
   <properties>
     <tomcat.version>8.0.28</tomcat.version>
   </properties>
@@ -41,11 +46,18 @@
         <artifactId>tomcat-jsp-api</artifactId>
         <version>${tomcat.version}</version>
     </dependency>
+    <dependency>
+ 	   <groupId>org.springframework.boot</groupId>
+ 	   <artifactId>spring-boot-starter-data-rest</artifactId>    	</dependency>
+ 	<dependency> 
+		<groupId>org.springframework.boot</groupId>
+ 		<artifactId>spring-boot-starter-data-jpa</artifactId> 	</dependency>
 	<dependency>
   	<groupId>org.postgresql</groupId>
   	<artifactId>postgresql</artifactId>
   	<version>9.4.1211</version>
 	</dependency>
+	
   </dependencies>
   <build>
     <finalName>embeddedTomcatSample</finalName>
@@ -72,6 +84,10 @@
                 </execution>
             </executions>
         </plugin>
+	    <plugin>
+		 <groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-maven-plugin</artifactId>
+	    </plugin>
     </plugins>
   </build>
 </project>
