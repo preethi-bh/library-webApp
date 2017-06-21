@@ -15,8 +15,8 @@ public class Service{
 		List<Model> books=new ArrayList<Model>();
 		try{
 			PreparedStatement pst;
-			connection.prepareStatement();
 			String query="select * from booktrans where username=?,bname=? and status='Available'";
+			pst.prepareStatement(query);
 			pst.setString(1,username);
 			pst.setString(2,bname);
 			ResultSet rs=pst.executeQuery();
