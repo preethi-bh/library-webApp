@@ -77,6 +77,7 @@
                         <name>webapp</name>
                     </program>
                 </programs>
+		<ignorePackaging>true</ignorePackaging>
             </configuration>
             <executions>
                 <execution>
