@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.*;
 public class Controller{
 	Service service=new Service();
 	
-	@RequestMapping(value="/search")
-	public List<Model> getBook(@PathVariable String username,String bname){
+	@RequestMapping(value="/search",method=RequestMethod.POST,consumes="application/json")
+	public List<Model> getBook(@RequestParam String username,@RequestParam String bname){
 		List<Model> m=service.getBookAvail(username,bname);
 		return m;
 	}
