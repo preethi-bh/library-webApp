@@ -41,6 +41,7 @@
         <artifactId>tomcat-jsp-api</artifactId>
         <version>${tomcat.version}</version>
    </dependency>
+	<dependency>
   	<groupId>org.postgresql</groupId>
   	<artifactId>postgresql</artifactId>
   	<version>9.4.1211</version>
@@ -71,6 +72,7 @@
                     </goals>
                 </execution>
             </executions>
+	</plugin>
     </plugins>
   </build>
 </project>
