@@ -1,7 +1,7 @@
 package rest;
 import org.springframework.boot.SpringApplication;
 
-@SpringBootApplication
+@SpringApplication
 public class Application
 {
 	public static void main(String args[]) throws Exception{
