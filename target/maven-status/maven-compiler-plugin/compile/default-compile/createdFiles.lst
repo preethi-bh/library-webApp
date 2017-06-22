@@ -1,5 +1,6 @@
 launch\Main.class
-rest\Controller.class
+rest\Application.class
 rest\Service.class
-rest\Model.class
 rest\DBUtility.class
+rest\Controller.class
+rest\Model.class
