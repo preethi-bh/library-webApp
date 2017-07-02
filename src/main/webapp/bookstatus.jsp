@@ -38,11 +38,13 @@ out.println("<a align=center href=home.jsp><h1>HOME</h1></a>");
 		if(rs!=null){
 			%><h2>
 			<TABLE border="1">
-			<TR><TH>College Code</TH><TH>Book id</TH><TH>Book Name</TH><TH>Edition</TH><TH>Subject</TH><TH>Rollno</TH><TH>MobileNo</TH><TH>Issue_date</TH><TH>Renew_Date</TH><TH>Status</TH></TR><%
+			<TR><TH>College Code</TH><TH>Book id</TH><TH>Book Name</TH><TH>Author</TH><TH>Edition</TH><TH>Subject</TH><TH>Rollno</TH><TH>MobileNo</TH><TH>Issue_date</TH><TH>Renew_Date</TH><TH>Status</TH></TR><%
 				
 			while(rs.next()){%>
 			<TR>
 			<td><%=rs.getString(1)%></td>
+			<td><%=rs.getString(10)%></td>
+			<td><%=rs.getString(2)%></td>
 			<td><%=rs.getString(11)%></td>
 			<td><%=rs.getString(3)%></td>
 			<td><%=rs.getString(4)%></td>
@@ -51,7 +53,6 @@ out.println("<a align=center href=home.jsp><h1>HOME</h1></a>");
 			<td><%=rs.getString(7)%></td>
 			<td><%=rs.getString(8)%></td>
 			<td><%=rs.getString(9)%></td>
-			<td><%=rs.getString(10)%></td>
 			</TR>
 			
 	  		<%
