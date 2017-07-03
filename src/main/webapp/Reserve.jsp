@@ -32,7 +32,7 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 	int res,res1;
 %>
 <%
-	Date reserve=new Date(System.currentTimeMillis());
+	Timestamp reserve=new Timestamp(System.currentTimeMillis());
 	String uname=(String)session.getAttribute("username");
 	id=request.getParameter("id");
 	rollno=request.getParameter("rollno");
