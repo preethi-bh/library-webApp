@@ -72,7 +72,7 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 				
 		}
 		else{
-			query="update BookTrans set Status='Available',Rollno='null' where BookId=? and username=?";
+			query="update BookTrans set Status='Available',Rollno='null',mobileno='null' where BookId=? and username=?";
 			pst=con.prepareStatement(query);
 			pst.setInt(1,id);
 			pst.setString(2,uname);
