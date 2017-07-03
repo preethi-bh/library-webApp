@@ -1,5 +1,4 @@
 <%@page contentType="text/html; pageEncoding=UTF-8"%>
-<%@page import="java.text.*"%>
 <%@page import="java.sql.*"%>
 <%
 out.println("<h1 align=center>Welcome "+session.getAttribute("username")+"</h1>");
@@ -33,8 +32,7 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 	int res,res1;
 %>
 <%
-	Date d=new Date(System.currentTimeMillis());
-	String timestamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(d);
+	Date reserve=new Date(System.currentTimeMillis());
 	String uname=(String)session.getAttribute("username");
 	id=request.getParameter("id");
 	rollno=request.getParameter("rollno");
@@ -60,13 +58,13 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 		pst.setString(2,uname);
 		rs=pst.executeQuery();
 		while(rs.next()){
-			timestamp=rs.getDate("min");
+			reserve=rs.getDate("min");
 		}
-		out.println("<h1 align=center>"+timestamp+"</h1>");
+		out.println("<h1 align=center>"+reserve+"</h1>");
 		query="update BookTrans set Status='Reserved',Rollno=? where Renew_Date=? and username=?";
 		pst=con.prepareStatement(query);
 		pst.setString(1,rollno);
-		pst.setDate(2,timestamp);
+		pst.setDate(2,reserve);
 		pst.setString(3,uname);
 		res=pst.executeUpdate();
 		out.println("<h1 align=center>"+res+"<h1>");
