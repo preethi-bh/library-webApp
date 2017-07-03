@@ -1,5 +1,5 @@
 <%@page contentType="text/html; pageEncoding=UTF-8"%>
-<%@page import="java.util.SimpleDateFormat"%>
+<%@page import="java.text.*"%>
 <%@page import="java.sql.*"%>
 <%
 out.println("<h1 align=center>Welcome "+session.getAttribute("username")+"</h1>");
