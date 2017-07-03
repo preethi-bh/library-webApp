@@ -36,7 +36,7 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 	try{
 	String uname=(String)session.getAttribute("username");
 	id1=request.getParameter("id");
-	id=Integer.parseInt("id");
+	id=Integer.parseInt(id1);
 	rollno=request.getParameter("rollno");
 	Class.forName("org.postgresql.Driver");
 	 String dbUrl = System.getenv("JDBC_DATABASE_URL");
