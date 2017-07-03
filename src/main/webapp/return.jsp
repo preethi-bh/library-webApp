@@ -54,7 +54,7 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 			rollno=rs.getString("Rollno");
 		}
 		if(status.equals("Reserved")){
-			query="select mobileno from user where Rollno=? and username=?";
+			query="select mobileno from student where Rollno=? and username=?";
 			pst=con.prepareStatement(query);
 			pst.setString(1,rollno);
 			pst.setString(2,uname);
