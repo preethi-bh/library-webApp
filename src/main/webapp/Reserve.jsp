@@ -42,7 +42,7 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 	
 	if(id!=null&&rollno!=null)
 	try{
-		/*query="select Status from booktrans where Name=? and username=?";
+		/*query="select Status from booktrans where bname=? and username=?";
 		pst=con.prepareStatement(query);
 		pst.setString(1,id);
 		pst.setString(2,uname);
@@ -52,7 +52,7 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 				out.println("This book is available in library");
 				break;
 			}*/
-		query="select MIN(Renew_Date) from BookTrans where Status='Issued' and Name=? and username=?";
+		query="select MIN(Renew_Date) from BookTrans where Status='Issued' and bname=? and username=?";
 		pst=con.prepareStatement(query);
 		pst.setString(1,id);
 		pst.setString(2,uname);
