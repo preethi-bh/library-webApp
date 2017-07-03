@@ -1,5 +1,6 @@
 <%@page contentType="text/html; pageEncoding=UTF-8"%>
-<%@page import="java.util.*"%>
+<%@page import="java.util.SimpleDateFormat"%>
+<%@page import="java.sql.*"%>
 <%
 out.println("<h1 align=center>Welcome "+session.getAttribute("username")+"</h1>");
 out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><h1>HOME</h1></a>");
