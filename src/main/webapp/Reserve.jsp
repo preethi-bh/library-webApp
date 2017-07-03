@@ -34,7 +34,7 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 %>
 <%
 	Date d=new Date(System.currentTimeMillis());
-	String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(d);
+	String timestamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(d);
 	String uname=(String)session.getAttribute("username");
 	id=request.getParameter("id");
 	rollno=request.getParameter("rollno");
@@ -62,7 +62,7 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 		while(rs.next()){
 			timestamp=rs.getDate("min");
 		}
-		out.println("<h1 align=center>"+reserve+"</h1>");
+		out.println("<h1 align=center>"+timestamp+"</h1>");
 		query="update BookTrans set Status='Reserved',Rollno=? where Renew_Date=? and username=?";
 		pst=con.prepareStatement(query);
 		pst.setString(1,rollno);
