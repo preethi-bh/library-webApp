@@ -58,7 +58,7 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 		pst.setString(2,uname);
 		rs=pst.executeQuery();
 		while(rs.next()){
-			reserve=rs.getDate(1);
+			reserve=rs.getDate("min");
 		}
 		query="update BookTrans set Status='Reserved',Rollno=? where Renew_Date=? and username=?";
 		pst=con.prepareStatement(query);
