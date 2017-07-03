@@ -60,15 +60,16 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 		while(rs.next()){
 			reserve=rs.getDate("min");
 		}
+		out.println("<h1 align=center>"+reserve+"</h1>");
 		query="update BookTrans set Status='Reserved',Rollno=? where Renew_Date=? and username=?";
 		pst=con.prepareStatement(query);
 		pst.setString(1,rollno);
 		pst.setDate(2,reserve);
 		pst.setString(3,uname);
 		res=pst.executeUpdate();
-
+		out.println("<h1 align=center>"+res+"<h1>");
 		if(res>0)
-			out.println("<h1 align=center>Inserted into Database successfully<h1>");
+			out.println("<h1 align=center>Inserted into Database successfully</h1>");
 
 	}
 	catch(Exception e){
