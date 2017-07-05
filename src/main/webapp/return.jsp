@@ -63,7 +63,7 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 				mob=rs.getString("MobileNo");
 			}			
 
-			query="update BookTrans set Status='Issued',MobileNo=? where BookId=? and username=?";
+			query="update BookTrans set Status='Borrowed',MobileNo=? where BookId=? and username=?";
 			pst=con.prepareStatement(query);
 			pst.setString(1,mob);
 			pst.setInt(2,id);
