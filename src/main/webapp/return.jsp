@@ -85,7 +85,7 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 
 	}
 	catch(Exception e){
-		out.println(e);
+		
 	}
 	finally {
     					try { rs.close(); } catch (Exception e) { /* ignored */ }
