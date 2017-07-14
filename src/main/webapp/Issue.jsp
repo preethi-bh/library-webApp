@@ -12,7 +12,7 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 	</head>
 	<body>
 		<div class="style">
-			<h2>
+			<h2 align="center">
 			<fieldset>
 				<legend><b>Issue a Book</legend>
 				<form method="post" action="Issue.jsp">
