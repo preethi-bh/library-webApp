@@ -12,8 +12,8 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 	</head>
 	<body>
 		<div class="style">
-			<h2 align="center">
-			<fieldset>
+			<h2>
+			<fieldset align="center">
 				<legend><b>Issue a Book</legend>
 				<form method="post" action="Issue.jsp">
 					Book Id:<input type="text" name="id" id="s" required><br>
