@@ -16,7 +16,7 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 			<h2>
 			<fieldset>
 				<legend><b>Return a book</legend>
-				<form method="post" action="return.jsp">
+				<form align="center" method="post" action="return.jsp">
 					Book Id:<input type="text" name="id" id="s" required><br>
 					Student Rollno:<input type="text" name="rollno" id="s" required><br>
 					<input type="submit" id="s" value="Submit">
@@ -94,7 +94,7 @@ out.println("<a align=center href=https://tomcat-sample.herokuapp.com/home.jsp><
 	}
    }
   catch(Exception e){
-	out.println(e);
+
   }
 %>
 
